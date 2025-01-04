@@ -9,6 +9,12 @@
 			"version": "latest",
 			"profile": "default",
 			"targets": "aarch64-unknown-linux-gnu"
+		},
+		"ghcr.io/devcontainers-extra/features/apt-packages:1": {
+			"clean_ppas": true,
+			"preserve_apt_list": true,
+			"packages": "build-essential cmake",
+			"ppas": "ppa:deadsnakes/ppa"
 		}
 	}
 
@@ -20,6 +26,7 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
+	// "postCreateCommand": "sudo apt update && sudo apt install -y cmake build-essential",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
