@@ -1,7 +1,6 @@
 // Functions for numbers
 
-
-pub fn sqrt_newton(number: f64) -> f64 {
+pub const fn sqrt_newton(number: f64) -> f64 {
     if number < 0.0 {
         panic!("Cannot compute the square root of a negative number");
     }
@@ -15,10 +14,18 @@ pub fn sqrt_newton(number: f64) -> f64 {
     loop {
         prev_guess = guess;
         guess = (guess + number / guess) / 2.0;
-        if (prev_guess - guess).abs() < 1e-10 {
+        if absolute(prev_guess - guess) < 1e-10 {
             break;
         }
     }
 
     guess
+}
+
+pub const fn absolute(value: f64) -> f64 {
+    if value < 0.0 {
+        -value
+    } else {
+        value
+    }
 }
